@@ -1,17 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+  <label for="search">Name:</label>
+  <input type="text" name="search" id="search">
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
+<script >
+console.log("salam")
+import FirstName from './components/FirstName.vue'
+import LastName from './components/LastName.vue'
+ import axios from 'axios'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+mounted(){
+axios({
+  method: "get",
+  url: "https://www.balldontlie.io/api/v1/players",
+})
+.then(function (response) {
+  console.log(response);
+});
 }
+}
+  components: {FirstName , LastName}
 </script>
 
 <style>
